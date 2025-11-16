@@ -26,12 +26,7 @@ modules:
   - python3-dependencies/requirements.json
   - python3-dependencies/matplotlib.yml
   - python3-dependencies/tkinter.json
-  - name: libglu
-    buildsystem: meson
-    sources:
-      - type: git
-        url: https://gitlab.freedesktop.org/mesa/glu
-        tag: glu-9.0.3
+  - shared-modules/glu/glu-9.json
 
   - name: flatcam
     buildsystem: simple
