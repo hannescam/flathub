@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+
+Name=FlatCAM Evo
+Comment=CAM software for manufacturing PCBs
+
+Categories=Science;Electronics
+Keywords=FlatCAM;CAM;PCB;Milling;CNC;Machining;Engraving;Laser
+
+Icon=io.bitbucket.marius_stanciu.flatcam_beta
+Exec=flatcam-wrapper
+Terminal=false

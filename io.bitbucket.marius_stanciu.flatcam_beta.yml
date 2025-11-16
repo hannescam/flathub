@@ -1,0 +1,57 @@
+id: io.bitbucket.marius_stanciu.flatcam_beta
+
+runtime: org.kde.Platform
+runtime-version: '6.10'
+sdk: org.kde.Sdk
+base: com.riverbankcomputing.PyQt.BaseApp
+base-version: '6.10'
+
+finish-args:
+  - --share=ipc
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --device=dri
+  - --talk-name=org.kde.StatusNotifierWatcher
+
+command: flatcam-wrapper
+
+cleanup-commands:
+  - /app/cleanup-BaseApp.sh
+build-options:
+  env:
+    - BASEAPP_REMOVE_WEBENGINE=1
+
+modules:
+  - python3-dependencies/shapely.yml
+  - python3-dependencies/requirements.json
+  - python3-dependencies/matplotlib.yml
+  - python3-dependencies/tkinter.json
+  - name: libglu
+    buildsystem: meson
+    sources:
+      - type: git
+        url: https://gitlab.freedesktop.org/mesa/glu
+        tag: glu-9.0.3
+
+  - name: flatcam
+    buildsystem: simple
+    build-commands:
+      - cp -r flatcam ${FLATPAK_DEST}
+      - install -Dm755 flatcam-wrapper ${FLATPAK_DEST}/bin
+      - install -Dm644 io.bitbucket.marius_stanciu.flatcam_beta.desktop ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop
+      - install -Dm644 io.bitbucket.marius_stanciu.flatcam_beta.metainfo.xml ${FLATPAK_DEST}/share/appdata/${FLATPAK_ID}.metainfo.xml
+      - install -Dm644 flatcam/assets/resources/app.svg ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/${FLATPAK_ID}.svg
+      - install -Dm644 flatcam/assets/linux/icon.png ${FLATPAK_DEST}/share/icons/hicolor/128x128/apps/${FLATPAK_ID}-symbolic.png
+    sources:
+      - type: git
+        url: https://bitbucket.org/marius_stanciu/flatcam_beta
+        commit: d0a86cf4f1ac41a206b20f316d4a29f28a93bbff
+        dest: flatcam
+      - type: script
+        dest-filename: flatcam-wrapper
+        commands:
+          - python /app/flatcam/flatcam.py
+      - type: file
+        path: io.bitbucket.marius_stanciu.flatcam_beta.desktop
+      - type: file
+        path: io.bitbucket.marius_stanciu.flatcam_beta.metainfo.xml

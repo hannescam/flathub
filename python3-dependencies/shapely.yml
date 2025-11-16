@@ -1,0 +1,26 @@
+name: shapely
+buildsystem: simple
+build-commands:
+  - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} . --no-build-isolation
+modules:
+  - name: libgeos
+    buildsystem: cmake-ninja
+    sources:
+      - type: git
+        url: https://github.com/libgeos/geos
+        tag: 3.14.1
+  - name: numpy
+    buildsystem: simple
+    build-commands:
+      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}" --prefix=${FLATPAK_DEST} . --no-build-isolation
+      - cp -r ${FLATPAK_DEST}/lib/python3.13/site-packages/numpy/_core/include/numpy ${C_INCLUDE_PATH}/numpy
+    modules:
+      - meson-python.json
+    sources:
+      - type: git
+        url: https://github.com/numpy/numpy
+        tag: v2.3.4
+sources:
+  - type: git
+    url: https://github.com/shapely/shapely
+    tag: 2.1.2

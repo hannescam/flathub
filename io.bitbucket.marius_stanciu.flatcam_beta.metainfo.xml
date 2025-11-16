@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.bitbucket.marius_stanciu.flatcam_beta</id>
+
+  <developer id="io.bitbucket.marius_stanciu">
+    <name>Marius Stanciu</name>
+  </developer>
+  <name>FlatCAM Evo</name>
+  <summary>CAM software for manufacturing PCBs</summary>
+  
+  <metadata_license>CC-BY-SA-4.0</metadata_license>
+  <project_license>MIT</project_license>
+
+  <recommends>
+    <display_length compare="ge">290</display_length>
+  </recommends>
+  
+  <description>
+    <p>Prepare GCode for machining on a CNC using scripted steps or manually</p>
+    <p>Features</p>
+    <ul>
+      <li>Double sided PCB assistant</li>
+      <li>Drilling by milling</li>
+      <li>Etching assistant</li>
+      <li>Scripting using TCL</li>
+    </ul>
+  </description>
+
+  <url type="vcs-browser">https://bitbucket.org/marius_stanciu/flatcam_beta/src/Beta_8.995</url>
+  <url type="homepage">https://bitbucket.org/marius_stanciu/flatcam_beta</url>
+  <url type="bugtracker">https://bitbucket.org/marius_stanciu/flatcam_beta/issues</url>
+
+  <launchable type="desktop-id">io.bitbucket.marius_stanciu.flatcam_beta.desktop</launchable>
+
+  <screenshots>
+    <screenshot type="default">
+      <caption>Flatcam window with a newly created project</caption>
+      <image>https://hannes.crafti-servi.com/flatcam-screenshots/new-project.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>General settings page open</caption>
+      <image>https://hannes.crafti-servi.com/flatcam-screenshots/general-settings.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>A double-sided project opened with the project structure on the left</caption>
+      <image>https://hannes.crafti-servi.com/flatcam-screenshots/project-overview.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>NCC (No Copper Clearing) tool on the left and the opened project</caption>
+      <image>https://hannes.crafti-servi.com/flatcam-screenshots/ncc-tool.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Milling tool on the left and the opened project</caption>
+      <image>https://hannes.crafti-servi.com/flatcam-screenshots/milling-tool.png</image>
+    </screenshot>
+  </screenshots>
+
+  <branding>
+    <color type="primary" scheme_preference="light">#16C5CA</color>
+    <color type="primary" scheme_preference="dark">#002CA0</color>
+  </branding>
+
+  <keywords>
+    <keyword>FlatCAM</keyword>
+    <keyword>CAM</keyword>
+    <keyword>PCB</keyword>
+    <keyword>Milling</keyword>
+    <keyword>CNC</keyword>
+    <keyword>Machining</keyword>
+    <keyword>Engraving</keyword>
+    <keyword>Laser</keyword>
+  </keywords>  
+ 
+  <content_rating type="oars-1.1"/>
+ 
+  <releases>    
+    <release version="2025.10" date="2025-10-08" type="stable">
+      <description>
+        <p>Initial Flatpak release</p>
+      </description>
+    </release>
+  </releases>
+  
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+  </supports>
+
+  
+</component>

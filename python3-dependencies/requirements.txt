@@ -1,0 +1,16 @@
+cppy
+pybind11
+darkdetect
+simplejson
+vispy
+pyopengl
+svg.py
+svg.path
+fonttools
+ezdxf
+rtree
+lxml
+reportlab
+svglib
+serial
+qrcode
