@@ -14,3 +14,5 @@ reportlab
 svglib
 serial
 qrcode
+cycler
+python-dateutil
