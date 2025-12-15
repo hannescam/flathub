@@ -1,0 +1,7 @@
+darkdetect
+FindSystemFontsFilename
+pybind11
+pillow
+pyperclipimg
+requests
+ttkbootstrap

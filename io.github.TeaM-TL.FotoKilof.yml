@@ -1,0 +1,64 @@
+id: io.github.TeaM_TL.FotoKilof
+
+runtime: org.freedesktop.Platform
+runtime-version: '25.08'
+sdk: org.freedesktop.Sdk
+
+finish-args:
+  - --share=ipc
+  - --socket=x11
+  - --socket=wayland
+  - --device=dri
+
+command: fotokilof
+
+modules:
+  - name: FotoKilof
+    buildsystem: simple
+    build-commands:
+      - pip3 install --prefix=${FLATPAK_DEST} --no-build-isolation .
+      - install -Dm644 io.github.TeaM-TL.FotoKilof.desktop ${FLATPAK_DEST}/share/applications/${FLATPAK_ID}.desktop
+    sources:
+      - type: git
+        url: https://github.com/TeaM-TL/FotoKilof.git
+        tag: 5.2.3
+      - type: file
+        path: io.github.TeaM-TL.FotoKilof.desktop
+    modules:
+      - name: imagemagick
+        buildsystem: autotools
+        sources:
+          - type: git
+            url: https://github.com/ImageMagick/ImageMagick.git
+            tag: 7.1.2-8
+      - name: wand
+        buildsystem: simple
+        build-commands:
+         - python3 setup.py install --prefix=${FLATPAK_DEST}
+        sources:
+          - type: git
+            url: https://github.com/emcconville/wand.git
+            tag:  0.6.13
+      - name: xclip
+        buildsystem: autotools
+        sources:
+          - type: git
+            url: https://github.com/astrand/xclip.git
+            tag: '0.13'
+        modules:
+          - name: libxmu
+            buildsystem: autotools
+            sources:
+              - type: git
+                url: https://gitlab.freedesktop.org/xorg/lib/libxmu.git
+                tag: libXmu-1.2.1
+      - name: wl-clipboard
+        buildsystem: meson
+        config-opts:
+          - -Dfishcompletiondir=no
+        sources:
+          - type: git
+            url: https://github.com/bugaevc/wl-clipboard.git
+            tag: v2.2.1
+      - python3-tk.json
+      - python3-requirements.json

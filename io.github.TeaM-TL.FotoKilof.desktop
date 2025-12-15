@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+
+Name=FotoKilof
+Comment=A GUI for ImageMagick for processing pictures
+
+Categories=Graphics;
+Keywords=ImageMagick;pictures;processing;Foto;Kilof;edditing
+
+Icon=io.github.TeaM-TL.FotoKilof
+Exec=fotokilof
+Terminal=false
