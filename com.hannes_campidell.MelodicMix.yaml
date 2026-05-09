@@ -60,7 +60,7 @@ modules:
       sources:
         - type: git
           url: https://gitlab.com/hannescam/melodicmix
-          commit: 73574293e8472499e172e1dd54499108eee769ad
+          commit: f365ed87b71c34988237ea3f032f8188322f54e9
       post-install:
         - mkdir -pm755 $FLATPAK_DEST/extensions/Presets
         - mkdir -pm755 $FLATPAK_DEST/extensions/Plugins
